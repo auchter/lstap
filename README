@@ -1,0 +1,103 @@
+lstap - List a bar's beers on Taplister
+
+Example
+=======
+
+% ./lstap --help
+usage: lstap [-h] [--today] [--verbose] [--date] url
+
+List beers on Taplister
+
+positional arguments:
+  url         Taplister URL for the bar
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --today     Show only beers listed today
+  --verbose   Print all information about the beer
+  --date      Sort beers by date instead of brewery
+% ./lstap --today http://www.taplister.com/bars/40b13b00f964a5209af31ee3
+Deep Ellum Brewing Company - Deep Ellum Festivus
+John Smiths (Heineken UK) - Newcastle Brown Ale
+% ./lstap --verbose http://www.taplister.com/bars/40b13b00f964a5209af31ee3
+[2012-12-06] (512) Brewing Company - (512) Bruin
+[2012-12-07] (512) Brewing Company - (512) IPA (cask)
+[2012-11-30] (512) Brewing Company - (512) Pecan Porter
+[2012-11-30] (512) Brewing Company - (512) Wit
+[2012-11-30] Adelbert’s Brewery - Adelbert’s Black Rhino
+[2012-11-30] Anchor Brewing Company - Anchor Our Special Ale (2005 and later)
+[2012-11-30] Austin Beerworks - Fire Eagle IPA
+[2012-11-30] Austin Beerworks - Peacemaker Extra Pale Ale
+[2012-12-10] Austin Beerworks - Sputnik
+[2012-11-30] Bear Republic Brewing Company - Bear Republic Racer 5 IPA
+[2012-12-04] Belhaven (Greene King) - Belhaven Scottish Ale / Export  (Bottle & Keg) (nitro)
+[2012-12-02] Breckenridge Brewery - Breckenridge Christmas Ale
+[2012-11-30] Brewery Ommegang (Moortgat) - Ommegang Three Philosophers
+[2012-11-30] Brooklyn Brewery - Brooklyn Sorachi Ace
+[2012-11-30] Brouwerij Lindemans - Lindemans Framboise
+[2012-11-30] Brugge Brasserie - Hommel Bier
+[2012-11-30] Circle Brewing Company - Circle Nightlight Irish Stout
+[2012-12-12] Deep Ellum Brewing Company - Deep Ellum Festivus
+[2012-12-08] Deep Ellum Brewing Company - Deep Ellum IPA
+[2012-11-30] Deep Ellum Brewing Company - Deep Ellum Pollenator
+[2012-11-30] Deschutes Brewery - Deschutes Chainbreaker White IPA
+[2012-11-30] Deschutes Brewery - Deschutes Jubelale
+[2012-11-30] Deschutes Brewery - Deschutes Obsidian Stout (nitro)
+[2012-12-11] Draught House Pub & Brewery - Draught House Amber Waves (cask)
+[2012-11-30] Draught House Pub & Brewery - Draught House Saison Smoke
+[2012-12-01] Fox Barrel Cider Company - Fox Barrel Blackberry Pear Cider
+[2012-11-30] Full Sail Brewing Company - Full Sail Wassail
+[2012-11-30] Fuller’s - ESB (Bottle/Keg)
+[2012-11-30] Great Divide Brewing Company - Great Divide Hibernation Ale
+[2012-11-30] Green Flash Brewing Co. - Green Flash West Coast IPA
+[2012-11-30] Guadalupe Brewing Company - Guadalupe Texas Honey Ale
+[2012-11-30] Hops & Grain Brewing - Hops & Grain Alt-eration Ale
+[2012-12-07] Hops & Grain Brewing - Hops & Grain Pale Dog Ale
+[2012-12-07] Independence Brewing Co. - Independence Brewing Convict Hill Imperial Oatmeal Stout (cask)
+[2012-11-30] Jester King Craft Brewing - Jester King Le Petit Prince Farmhouse Table Beer
+[2012-12-12] John Smiths (Heineken UK) - Newcastle Brown Ale
+[2012-12-04] Lagunitas Brewing Company - Lagunitas Brown Shugga
+[2012-12-10] Lagunitas Brewing Company - Lagunitas Cappuccino Stout
+[2012-12-04] Left Hand Brewing Co. - Left Hand Ambidextrous
+[2012-11-27] Left Hand Brewing Co. - Left Hand Milk Stout (nitro)
+[2012-11-30] Left Hand Brewing Co. - Left Hand Sawtooth Ale
+[2012-11-30] Leinenkugel Brewing Company (Tenth & Blake Beer Co.) - Leinenkugels Big Eddy Imperial IPA
+[2012-11-30] Live Oak Brewing Company - Live Oak Hefe Weizen
+[2012-12-08] Live Oak Brewing Company - Live Oak Old Tree Hugger
+[2012-11-30] Live Oak Brewing Company - Live Oak Primus
+[2012-11-30] Maui Brewing Company - Maui Brewing Sobrehumano Palena’ole
+[2012-12-04] New Belgium Brewing Company - New Belgium Lips of Faith - Vrienden
+[2012-11-30] New Belgium Brewing Company - New Belgium Shift Pale Lager
+[2012-11-30] New Belgium Brewing Company - New Belgium Snow Day
+[2012-12-01] None - Real Ale Brewer's Cut Black Quad
+[2012-12-04] Original Sin Cidery - Original Sin Hard Cider
+[2012-12-07] Oskar Blues Grill & Brew - Oskar Blues Old Chub
+[2012-11-30] Ranger Creek Brewing & Distilling - Ranger Creek DOS
+[2012-11-30] Ranger Creek Brewing & Distilling - Ranger Creek Small Batch Series No. 3
+[2012-12-08] Real Ale Brewing Company - Real Ale Coffee Porter
+[2012-12-10] Real Ale Brewing Company - Real Ale Firemans #4
+[2012-11-30] Saint Arnold Brewing Company - Saint Arnold Christmas Ale
+[2012-11-30] Santa Fe Brewing Company - Santa Fe Imperial Java Stout
+[2012-11-30] Schirf Brewing Company/Wasatch Brew Pub - Wasatch Winterfest
+[2012-12-06] Sierra Nevada Brewing Company - Sierra Nevada Northern Hemisphere Harvest Wet Hop Ale
+[2012-11-30] Southern Star Brewing Co. - Southern Star Bombshell Blonde Ale
+[2012-11-30] Southern Star Brewing Co. - Southern Star Buried Hatchet Stout (nitro)
+[2012-12-08] St. Bernardus Brouwerij - St. Bernardus Abt 12
+[2012-11-27] St. James’s Gate (Diageo) - Guinness Draught
+[2012-11-30] Stone Brewing Co. - Arrogant Bastard Ale
+[2012-12-08] Stone Brewing Co. - Stone 12.12.12 Vertical Epic Ale
+[2012-11-30] Stone Brewing Co. - Stone Cali-Belgique IPA (Cali-België)
+[2012-11-30] Texas Sake Company - Texas Sake Tumbleweed Bone-dry
+[2012-11-30] Thirsty Planet Brewing - Thirsty Planet Thirsty Goat Amber
+[2012-12-01] Vermont Hard Cider Company, LLC - Woodchuck Amber Draft Cider
+[2012-11-30] Victory Brewing Company - Victory Ranch S
+[2012-12-07] Victory Brewing Company - Victory Scarlet Fire Rauchbier
+[2012-11-30] Victory Brewing Company - Victory Storm King Imperial Stout
+[2012-12-04] Warsteiner Brauerei - Warsteiner Premium Verum
+
+Todo
+====
+- Caching of Taplister pages
+- Diff in tap list since last run
+- Alias for bar names -> url
+- Saner arguments 
