@@ -5,14 +5,16 @@ import pprint
 from datetime import datetime
 from BeautifulSoup import BeautifulSoup
 
+def convert_entities(s):
+	return BeautifulSoup(s, convertEntities=BeautifulSoup.HTML_ENTITIES).getText()
+
 def parse_beer(b):
 	info = {}
 
 	date = b.find('sub', {'class': 'listed-on'}).string
-	info['date'] = datetime.strptime(date, 'Listed on %b %d, %Y')
-	info['brewery'] = b.find('h4').string
-	info['beer'] = b.find('h2', {'class': 'beer-name'}).string
-
+	info['date'] = datetime.strptime(date, 'Listed on %b %d, %Y').date()
+	info['brewery'] = convert_entities(b.find('h4').string)
+	info['beer'] = convert_entities(b.find('h2', {'class': 'beer-name'}).string)
 	return info
 
 
