@@ -22,7 +22,7 @@ def parse_beer(b):
 	date = b.find('sub', {'class': 'listed-on'}).string
 	info['date'] = datetime.strptime(date, 'Listed on %b %d, %Y').date()
 	info['brewery'] = convert_entities(b.find('h4').string)
-	info['beer'] = convert_entities(b.find('h2', {'class': 'beer-name'}).string)
+	info['beer'] = b.find('h1').contents[0]
 	return info
 
 def parse(soup):
