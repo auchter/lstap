@@ -7,9 +7,11 @@
 
 import argparse
 import codecs
+import ConfigParser
 import re
 import sys
 import urllib
+from os.path import expanduser
 from datetime import datetime, date
 from BeautifulSoup import BeautifulSoup
 
@@ -54,6 +56,14 @@ def key_date(beer):
 def key_brewery(beer):
 	return beer['brewery']
 
+def lookup_alias(alias):
+	try:
+		config = ConfigParser.ConfigParser()
+		config.read(expanduser("~") + "/.lstaprc")
+		return config.get("bars", alias)
+	except:
+		return alias
+
 if __name__ == '__main__':
 	sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 
@@ -72,7 +82,8 @@ if __name__ == '__main__':
 
 	args = parser.parse_args()
 
-	p = snarf_url(args.url)
+	url = lookup_alias(args.url)
+	p = snarf_url(url)
 	soup = BeautifulSoup(p, convertEntities=BeautifulSoup.HTML_ENTITIES)
 
 	map(args.display,
