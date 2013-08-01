@@ -14,9 +14,11 @@ import urllib
 from os.path import expanduser
 from datetime import datetime, date
 from BeautifulSoup import BeautifulSoup
+from BeautifulSoup import BeautifulStoneSoup
 
 def convert_entities(s):
-	return BeautifulSoup(s, convertEntities=BeautifulSoup.HTML_ENTITIES).getText()
+	if s:
+		return BeautifulStoneSoup(s, convertEntities=BeautifulSoup.HTML_ENTITIES, smartQuotesTo="html").contents[0]
 
 def parse_beer(b):
 	info = {}
