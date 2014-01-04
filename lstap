@@ -14,7 +14,6 @@ import urllib
 from os.path import expanduser
 from datetime import datetime, date
 from BeautifulSoup import BeautifulSoup
-from BeautifulSoup import BeautifulStoneSoup
 
 def parse_beer(b):
 	info = {}
