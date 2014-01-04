@@ -25,12 +25,9 @@ def parse_beer(b):
 	return info
 
 def parse(soup):
-	info = []
 	tap_list = soup.find('div', {'id': 'desktop-tap-list'})
 	beers = tap_list.findAll('div', {'id': re.compile("beer-[0-9]+")})
-	for beer in beers:
-		info.append(parse_beer(beer))
-	return info
+	return map(parse_beer, beers);
 
 def lookup_alias(alias):
 	try:
