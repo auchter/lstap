@@ -16,17 +16,13 @@ from datetime import datetime, date
 from BeautifulSoup import BeautifulSoup
 from BeautifulSoup import BeautifulStoneSoup
 
-def convert_entities(s):
-	if s:
-		return BeautifulStoneSoup(s, convertEntities=BeautifulSoup.HTML_ENTITIES, smartQuotesTo="html").contents[0]
-
 def parse_beer(b):
 	info = {}
 
 	date = b.find('sub', {'class': 'listed-on'}).string
 	info['date'] = datetime.strptime(date, 'Listed on %b %d, %Y').date()
-	info['brewery'] = convert_entities(b.find('h4').string)
-	info['beer'] = b.find('h1').contents[0]
+	info['brewery'] = ''.join(b.find('h4').contents)
+	info['beer'] = ''.join(b.find('h1').contents).strip()
 	return info
 
 def parse(soup):
