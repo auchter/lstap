@@ -50,12 +50,12 @@ if __name__ == '__main__':
 			default=lambda x: True,
 			help='Show only beers listed today')
 
-	parser.add_argument('--verbose',
+	parser.add_argument('--terse',
 			dest='display',
 			action='store_const',
-			const=lambda x: "[%s] %s - %s" % (x['date'], x['brewery'], x['beer']),
-			default=lambda x: "%s - %s" % (x['brewery'], x['beer']),
-			help='Print all information about the beer')
+			default=lambda x: "[%s] %s - %s" % (x['date'], x['brewery'], x['beer']),
+			const=lambda x: "%s - %s" % (x['brewery'], x['beer']),
+			help='Omit the date the beer was tapped')
 
 	parser.add_argument('--sort',
 			dest='sort_key',
