@@ -37,6 +37,19 @@ def lookup_alias(alias):
 	except:
 		return alias
 
+def beer_name(b):
+	beer_words = b['beer'].split(' ')
+
+	for word in b['brewery'].split(' '):
+		if word == beer_words[0]:
+			beer_words = beer_words[1:]
+		else:
+			break
+
+	beer = ' '.join(beer_words)
+
+	return "%s - %s" % (b['brewery'], beer)
+
 if __name__ == '__main__':
 	sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
 
@@ -53,8 +66,8 @@ if __name__ == '__main__':
 	parser.add_argument('--terse',
 			dest='display',
 			action='store_const',
-			default=lambda x: "[%s] %s - %s" % (x['date'], x['brewery'], x['beer']),
-			const=lambda x: "%s - %s" % (x['brewery'], x['beer']),
+			default=lambda x: "[%s] %s" % (x['date'], beer_name(x)),
+			const=lambda x: "%s" % beer_name(x),
 			help='Omit the date the beer was tapped')
 
 	parser.add_argument('--sort',
